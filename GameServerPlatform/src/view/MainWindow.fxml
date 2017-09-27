@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowView">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <MenuBar disable="true">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox spacing="10.0">
+               <children>
+                  <TextField fx:id="userField" promptText="username" text="tal" />
+                  <TextField fx:id="passField" layoutX="10.0" layoutY="10.0" promptText="password" text="1243" />
+                  <Region />
+                  <Button fx:id="Blogin" mnemonicParsing="false" onAction="#login" text="Login">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="Bsettings" mnemonicParsing="false" onAction="#settings" text="Settings">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Region />
+                  <Button fx:id="Bstart" disable="true" mnemonicParsing="false" onAction="#runServer" prefWidth="140.0" text="Start Server" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="Bstop" disable="true" mnemonicParsing="false" onAction="#stopServer" prefWidth="140.0" text="Stop Server" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" spacing="2.0">
+               <children>
+                  <TextField fx:id="commandLine" alignment="CENTER" disable="true" onKeyPressed="#textFieldKeyPressed" promptText="Command Line" />
+                  <Region />
+                  <Button fx:id="BenterCommand" disable="true" mnemonicParsing="false" onAction="#textFieldButton" prefHeight="20.0" prefWidth="59.0" text="Enter" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="7.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="label" alignment="CENTER" prefHeight="24.0" prefWidth="462.0" text="Blackjack" textAlignment="CENTER">
+               <font>
+                  <Font name="Verdana" size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+               </padding>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+      </HBox>
+   </bottom>
+   <center>
+      <HBox fx:id="listViewHBox" disable="true" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="listViewA">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ListView>
+            <ListView fx:id="listViewB">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ListView>
+            <ListView fx:id="listViewC">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ListView>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

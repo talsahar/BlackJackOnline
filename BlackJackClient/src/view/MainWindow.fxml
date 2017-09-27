@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import view.GameView?> 
+
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainWindowController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+            <Menu disable="true" mnemonicParsing="false" text="BlackJack" />
+          <Menu mnemonicParsing="false" text="Menu">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Invite" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="AutoMatch" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+        <GameView fx:id="gameDisplayer" height="383.0" width="600.0" />
+            <AnchorPane fx:id="lobbyPane" layoutX="1.0" visible="false">
+               <children>
+                  <VBox>
+                     <children>
+                        <TableView fx:id="onlineTable" maxWidth="1.7976931348623157E308" opacity="0.9" prefHeight="177.0" prefWidth="379.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <ListView fx:id="chatView" opacity="0.9" prefHeight="160.0" prefWidth="379.0" />
+                        <HBox>
+                           <children>
+                              <TextField fx:id="chatTextField" onKeyPressed="#chatFieldKeyPressed" opacity="0.9" prefHeight="29.0" prefWidth="321.0">
+                                 <font>
+                                    <Font name="Verdana" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <Button mnemonicParsing="false" onAction="#send" opacity="0.9" prefHeight="29.0" prefWidth="57.0" text="Send" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </AnchorPane>
+            <AnchorPane fx:id="gamePane" layoutX="1.0" prefHeight="383.0" prefWidth="600.0" visible="false">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <children>
+                  <ImageView fx:id="hitButton" fitHeight="92.0" fitWidth="92.0" layoutX="99.0" layoutY="164.0" onMouseClicked="#onHit" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="playAgainButton" fitHeight="92.0" fitWidth="92.0" layoutX="10.0" layoutY="164.0" onMouseClicked="#onPlayAgainButton" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="standButton" fitHeight="92.0" fitWidth="92.0" layoutX="389.0" layoutY="164.0" onMouseClicked="#onStand" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="lobbyButton" fitHeight="92.0" fitWidth="92.0" layoutX="480.0" layoutY="164.0" onMouseClicked="#onLobbyButton" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Text fx:id="myCashText" fill="#f8f8f8" fontSmoothingType="LCD" layoutX="28.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cash" textAlignment="CENTER" wrappingWidth="121.7802734375">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="currentBetText" fill="WHITE" fontSmoothingType="LCD" layoutX="210.0" layoutY="176.0" stroke="BLACK" strokeWidth="0.0" text="Bet" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="159.4560546875">
+                     <font>
+                        <Font name="Verdana" size="24.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="bigGameMessage" fill="GREENYELLOW" fontSmoothingType="LCD" layoutX="63.0" layoutY="99.0" stroke="BLACK" strokeWidth="0.0" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="473.4560546875">
+                     <font>
+                        <Font name="Arial Rounded MT Bold" size="64.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="rivalNameText" fill="WHITE" fontSmoothingType="LCD" layoutX="470.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PlayerName">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="myNameText" fill="WHITE" fontSmoothingType="LCD" layoutX="470.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PlayerName">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="rivalCashText" fill="WHITE" fontSmoothingType="LCD" layoutX="28.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cash" textAlignment="CENTER" wrappingWidth="121.7802734375">
+                     <font>
+                        <Font name="Verdana" size="14.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="authenticationPane" disable="false" layoutX="101.0" layoutY="300.0" prefHeight="69.0" prefWidth="401.0">
+               <children>
+                  <ImageView fx:id="loginButton" fitHeight="57.0" fitWidth="132.0" layoutX="34.0" layoutY="10.0" onMouseClicked="#login" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="registerButton" fitHeight="57.0" fitWidth="132.0" layoutX="235.0" layoutY="10.0" onMouseClicked="#register" pickOnBounds="true" preserveRatio="true">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="exitButton" fitHeight="92.0" fitWidth="92.0" layoutX="495.0" layoutY="30.0" onMouseClicked="#onExitButton" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+          <Label fx:id="label" alignment="CENTER" text="Welcome">  
+               <font>
+                  <Font name="Verdana" size="16.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>
